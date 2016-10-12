@@ -2,4 +2,4 @@
 
 .maxwidth
 
-  = react_component("EditableArticle", { title: @page.title, subtitle: @page.subtitle, body: @page.body })
+  = react_component("PageEdit", { title: @page.title, subtitle: @page.subtitle, body: @page.body, page_id: @page.id })

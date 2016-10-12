@@ -46,10 +46,7 @@ class PagesController < ApplicationController
     end
   end
 
-
-
-  def delete
-  end
+  
 
   private
 
