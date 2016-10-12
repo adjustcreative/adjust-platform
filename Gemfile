@@ -17,7 +17,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'medium-editor-rails' # https://github.com/marjinal1st/medium-editor-rails
+
+gem 'react-rails', '~> 1.6.0'
 gem 'font-awesome-rails'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'haml-rails'
