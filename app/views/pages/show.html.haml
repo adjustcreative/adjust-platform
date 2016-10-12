@@ -1,9 +1,13 @@
+.maxwidth
 
-%h1= @page.title
-%h3= @page.subtitle
+  = react_component("Article", { title: @page.title, subtitle: @page.subtitle, body: @page.body })
 
-%div Description: #{@page.description}
-%div 
-  %div Body: 
-  %div= @page.body
+
+/ %h1= @page.title
+/ %h3= @page.subtitle
+
+/ %div Description: #{@page.description}
+/ %div 
+/   %div Body: 
+/   %div= @page.body
 
