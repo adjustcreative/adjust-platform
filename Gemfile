@@ -22,7 +22,8 @@ gem 'font-awesome-rails'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'haml-rails'
 gem 'time_difference'
-
+gem 'simple_form'
+gem 'kaminari'
 gem 'gibbon'
 # gem 'gmaps4rails'
 # gem 'rename'
@@ -39,6 +40,7 @@ group :development do
   gem 'annotate'
   # gem 'quiet_assets'
   gem 'rails-audit'
+  gem 'pry'
 end
 
 

@@ -1,0 +1,14 @@
+
+
+.maxwidth
+  %article
+    %h1= @page.title
+    %h2= @page.subtitle
+
+    / %div #{@page.description}
+    %div.editable= @page.body
+
+    :javascript
+      var editor = new MediumEditor('.editable', {
+        // options go here
+      });
