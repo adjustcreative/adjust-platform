@@ -2,9 +2,4 @@
 
 .maxwidth
 
-  %article
-    %h1{contenteditable:true}= @page.title
-    %h2{contenteditable:true}= @page.subtitle
-
-    .body{contenteditable:true}
-      %div= @page.body
+  = react_component("EditableArticle", { title: @page.title, subtitle: @page.subtitle, body: @page.body })
