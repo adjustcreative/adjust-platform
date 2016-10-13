@@ -23,7 +23,7 @@ class PagesController < ApplicationController
       # reload the routes..
       Rails.application.reload_routes!
       # redirect back to list..
-      redirect_to page_path @page
+      redirect_to edit_page_path @page
     else
       flash[:error] = "Problem saving page."
       render :new

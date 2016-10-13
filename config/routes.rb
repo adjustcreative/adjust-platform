@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # api
 
   namespace :api do
-    resources :pages, only: [:update]
+    resources :pages, only: [:update, :create]
   end
 
 end
