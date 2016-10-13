@@ -31,7 +31,7 @@ var PageNew = React.createClass({
 
   submitChange:function(){
     
-    console.log('submit changes to database', this.store.title);
+    // console.log('submit changes to database', this.store.title);
 
     var self = this;
 
@@ -49,8 +49,8 @@ var PageNew = React.createClass({
       method: method,
       data: data,
     }).complete(function (response) {
-      console.log('database response')
-      console.log(response);
+      // console.log('database response')
+      // console.log(response);
     });
 
   },

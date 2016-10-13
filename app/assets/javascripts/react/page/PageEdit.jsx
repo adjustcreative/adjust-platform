@@ -19,19 +19,24 @@ var PageEdit = React.createClass({
     $("#"+this.save_btn_id).on("click", function(){
       self.submitChange();
     });
+    // save when pressing ctrl+s
+    $(window).on("keydown", function(e){
+      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+        e.preventDefault();
+        self.submitChange();
+      }
+    });
   },
 
   onPageEditChange: function( data ){
-
     // update store..
     this.store[data.fieldName] = data.html;
-
     // this.forceUpdate();
   },
 
   submitChange:function(){
     
-    console.log('submit changes to database', this.store.title);
+    // console.log('submit changes to database', this.store.title);
 
     var self = this;
 
@@ -49,8 +54,8 @@ var PageEdit = React.createClass({
       method: method,
       data: data,
     }).complete(function (response) {
-      console.log('database response')
-      console.log(response);
+      // console.log('database response')
+      // console.log(response);
     });
 
   },
