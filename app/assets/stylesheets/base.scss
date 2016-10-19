@@ -12,36 +12,6 @@ body{
 }
 
 
-// fonts
-body{ 
-  font-family: Helvetica; 
-  font-size:17px;
-  line-height:1.4em;
-}
-
-// text
-blockquote, .blockquote{
-  border-left: 5px solid white;
-  padding-left: 12px;
-  margin-left: -16px;
-}
-
-strong, b, .bold{ font-weight:bold; }
-em, i, .italic{ font-style:italic; }
-
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 { font-weight: bold; }
-
-h6, .h6{ font-size: 1em; line-height: 1.2em; }
-h5, .h5{ font-size: 1.1em; line-height: 1.2em; }
-h4, .h4{ font-size: 1.2em; line-height: 1.2em; }
-h3, .h3{ font-size: 1.3em; line-height: 1.2em; }
-h2, .h2{ font-size: 1.5em; line-height: 1.2em;  }
-h1, .h1{ font-size: 2em; line-height: 1.2em;  }
-
-// links
-a, a:link, a:visited{ color:white; }
-
 
 // layout
 .maxwidth{ width:100%; max-width:800px; margin-left:auto; margin-right:auto; }

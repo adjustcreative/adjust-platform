@@ -23,15 +23,15 @@ var PageEdit = React.createClass({
     $(window).on("keydown", function(e){
       if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
         e.preventDefault();
-        self.submitChange();
+        if(!self.keyboardsave){
+          self.keyboardsave = true;
+          self.submitChange();
+        }
       }
     });
-  },
-
-  onPageEditChange: function( data ){
-    // update store..
-    this.store[data.fieldName] = data.html;
-    // this.forceUpdate();
+    $(window).on("keyup", function(e){
+      self.keyboardsave = false;
+    });
   },
 
   submitChange:function(){
