@@ -1,5 +1,7 @@
-// React Medium Editor Wrapper with help of this file:
-// https://github.com/wangzuo/react-medium-editor/blob/master/dist/editor.js
+// Wraps this: https://github.com/yabwe/medium-editor
+
+// with the help of: https://github.com/wangzuo/react-medium-editor/blob/master/dist/editor.js
+
 
 var MediumEditorReact = React.createClass({
 
@@ -8,7 +10,7 @@ var MediumEditorReact = React.createClass({
   store: {
     text: "",
     updated: false,
-  }
+  },
 
   componentWillMount: function() {
     this.store.text = this.props.text;

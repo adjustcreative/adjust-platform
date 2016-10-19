@@ -60,21 +60,36 @@ var PageEdit = React.createClass({
 
   },
 
+  handleChange: function(text, medium) {
+    this.store.body = text;
+    this.forceUpdate();
+  },
+
   render:function(){
 
     var titleData = { fieldName: "title", html: this.store.title };
     var subtitleData = { fieldName: "subtitle", html: this.store.subtitle };
     var bodyData = { fieldName: "body", html: this.store.body };
+
+    var options = {
+      autoLink: true
+    }
     
     return(
       <article>
 
-        <ContentEditable className="h1" data={ titleData } />
-        <ContentEditable className="body" data={ bodyData } />
+        <div className="h1" dangerouslySetInnerHTML={{__html: this.props.title}} />
+
+        <MediumEditorReact 
+          className="body" 
+          options={ options }
+          tag="p"
+          onChange={this.handleChange}
+          text={ bodyData.html }
+          data={ bodyData } />
 
         <button id={this.save_btn_id}>Save</button>
 
-        <ContentModifierMenu />
       </article>
     )
   }
