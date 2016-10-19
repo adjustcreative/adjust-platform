@@ -1,28 +1,9 @@
 var ContentEditable = React.createClass({
 
   componentWillMount: function() {
-    $(window).on("mouseup", function(e){
-      e.stopPropagation();
-      var sel = window.getSelection();
-      if(sel.focusOffset != sel.anchorOffset){
-        console.log("open menu", sel)
-      }
-    });
   },
 
-  replaceSelectedText: function( text ) {
-    var sel, range;
-    if (window.getSelection) {
-      sel = window.getSelection();
-      if (sel.rangeCount) {
-        range = sel.getRangeAt(0);
-        range.deleteContents();
-        range.insertNode(document.createTextNode(text));
-      }
-    }else if(document.selection && document.selection.createRange){
-      range = document.selection.createRange();
-      range.text = text;
-    }
+  componentDidMount: function() {
   },
 
 

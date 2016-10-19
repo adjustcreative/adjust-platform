@@ -17,10 +17,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
 gem "responders" # needed for rails 5 respond_to
 gem 'react-rails', '~> 1.6.0'
 gem 'font-awesome-rails'
+gem "autoprefixer-rails"
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'haml-rails'
 gem 'time_difference'

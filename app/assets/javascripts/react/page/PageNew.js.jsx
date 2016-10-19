@@ -58,14 +58,12 @@ var PageNew = React.createClass({
   render:function(){
 
     var titleData = { fieldName: "title", html: this.store.title };
-    var subtitleData = { fieldName: "subtitle", html: this.store.subtitle };
     var bodyData = { fieldName: "body", html: this.store.body };
     
     return(
       <article>
 
         <ContentEditable className="h1" data={ titleData } />
-        <ContentEditable className="h2" data={ subtitleData } />
         <ContentEditable className="body" data={ bodyData } />
 
         <button id={this.save_btn_id}>Save</button>

@@ -70,10 +70,11 @@ var PageEdit = React.createClass({
       <article>
 
         <ContentEditable className="h1" data={ titleData } />
-        <ContentEditable className="h2" data={ subtitleData } />
         <ContentEditable className="body" data={ bodyData } />
 
         <button id={this.save_btn_id}>Save</button>
+
+        <ContentModifierMenu />
       </article>
     )
   }

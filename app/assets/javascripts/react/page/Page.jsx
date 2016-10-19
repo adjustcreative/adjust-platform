@@ -14,7 +14,6 @@ var Page = React.createClass({
     return(
       <article>
         <div className="h1" dangerouslySetInnerHTML={{__html: this.props.title}} />
-        <div className="h2" dangerouslySetInnerHTML={{__html: this.props.subtitle}} />
         <div className="body" dangerouslySetInnerHTML={{__html: this.props.body}} />
       </article>
     )
