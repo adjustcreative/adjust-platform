@@ -8,7 +8,6 @@
       %h3 Adjust Creative partners with brands, educators & innovators to design and develop cutting-edge digital products with measurable results.
 
 
-  - p = Page.where()
   .feature
     .inner
       %p Case Study
@@ -42,10 +41,71 @@
       %button View Case Study
 
 
+.home-services.lightcolor
+  .maxwidth
+    %h1 What we're good at
+
+    %p We are an agile product design agency. We use lean methods to create and develop interactive products and experiences with a people-first approach. Our team has the skills to take a project from concept to launch, but can also work just as effectively to augment a team in any of the capacities described below.
+    .space
+    %button View our Capabilities
+
+    .space
+    .grid
+      .col-1-3
+        %h2 Strategy
+        %div User Research
+        %div Product Definition
+        %div Marketing Strategy
+        %div Brand Analysis
+        %div Mobile Strategy
+        %div Heuristic / Usability Analysis
+        %div Go-to-market Consulting
+        %div Rapid Prototyping
+
+      .col-1-3
+        %h2 Design
+        %div Information Architecture
+        %div Branding & Identity Design
+        %div High-end graphics & illustration
+        %div Goal-oriented User Interface Design (UI)
+        %div Game Mechanics & Game Design
+        %div Interactive video
+        %div Interactive digital content
+
+      .col-1-3
+        %h2 Develop
+        %div Full-stack development
+        %div Solutions architecture
+        %div Subscription, loyalty & CRM platforms
+        %div Technical Consulting
+        %div Content Management Systems (CMS)
+        %div Global Ecommerce
+        %div Mobile platforms (web & native)
+        %div Systems & data integration
+        %div Branded applications and IP
+        %div Interactive kiosk & digital signage
+
+
+
+
+
 
 
 
 :css
+  .home-services{
+    padding:40px 0px;
+  }
+  .lightcolor{
+    background:rgba(255,255,255,0.9);
+    color:rgba(0,0,0,0.8);
+  }
+  .lightcolor button, .lightcolor .button{
+    color:rgba(0,0,0,0.8);
+    border-color:rgba(0,0,0,0.8);
+  }
+
+
   .home-features{
     position:relative;
     width:100%;
@@ -65,4 +125,6 @@
   }
 
 
-:javascript
+
+
+
