@@ -7,7 +7,6 @@ var Homepage = {
   currentIndex: 0,
 
   init: function(){
-    console.log("hi");
 
     var self = this;
 
@@ -23,18 +22,14 @@ var Homepage = {
       left:$(window).width()/2,
     });
 
-
     $(".home-features .feature").each( function(i, target){
       var slide = $(this);
       slide.css({
-        // "position": "absolute",
+        "position": "relative",
         width: "100%",
         "min-height": $(window).height() * 0.8,
-        left: $(window).width() * i
       });
       self.slides.push( slide );
-
-
     });
     $(window).resize( function(){ self.resize(); });
   },

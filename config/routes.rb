@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   # loop through all pages and generate a route for them..
   Article.all.each do |p|
     # show article
-    get '/' << p.slug, to: 'articles#show', defaults: {id:p.id}
+    get '/articles/' << p.slug, to: 'articles#show', defaults: {id:p.id}
     # edit article
-    get '/' << p.slug << '/edit', to: 'articles#edit', defaults: {id:p.id}
+    get '/articles/' << p.slug << '/edit', to: 'articles#edit', defaults: {id:p.id}
   end
 
 

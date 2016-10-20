@@ -1,14 +1,15 @@
 
 
 .home-features
-  .home-feature-controls
   .feature
-    .inner
+    .bg
+    .inner{ :style => "position: absolute; top: 50%; transform: translateY(-50%); left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 800px;"}
       %h1 We believe good design matters.
       .space
       %h3 For that reason, we've spent our lives honing and crafting the ability to help people communicate with design and technology, effectively, and strategically.
 
-  .feature
+  .feature{ :style => "background-color:#131384 !important;"}
+    .bg{ :style => "background-image: url(#{image_path "himss-homepage.jpg"})" }
     .inner
       %p Case Study
       %h1 Unique Experience, Complex Data
@@ -16,7 +17,8 @@
       .space
       %button View Case Study
 
-  .feature
+  .feature{ :style => "background-color:#bd002f !important;"}
+    .bg{ :style => "background-image: url(#{image_path "tei-homepage.jpeg"})" }
     .inner
       %p Case Study
       %h1 Ground-up social education platform
@@ -24,7 +26,8 @@
       .space
       %button View Case Study
 
-  .feature
+  .feature{ :style => "background-color:rgb(77, 17, 88) !important"}
+    .bg{ :style => "background-image: url(#{image_path "peruse-homepage.jpg"})" }
     .inner
       %p Case Study
       %h1 A Product Design Sprint.
@@ -32,7 +35,8 @@
       .space
       %button View Case Study
 
-  .feature
+  .feature{ :style => "background-color:#734f4f;" }
+    .bg{ :style => "background-image: url(#{image_path "tovala-homepage.jpg"})" }
     .inner
       %p Case Study
       %h1 The future of your kitchen.
@@ -40,8 +44,7 @@
       .space
       %button View Case Study
 
-
-.home-services.lightbgblock
+.home-services
   .maxwidth
     %h1 What we do
 
@@ -54,28 +57,30 @@
     %p To see a full list of our capabilities,
 
     .space
-    %button View our Capabilities
+    = link_to "/capabilities" do
+      %button View our Capabilities
+    .space
 
-
-.maxwidth
-  .space
-  %h1 Work with us
-  .space
-  %p Are you lookging to partner with a full-stack design and tech team? 
-  %p Are you trying to design & build an app?
-  %p Do you need high-impact design for your brand?
-  .space
-  %h3 These are the things we're great at.
-  .space
-  %p We partner with brands, innovators and educators to help facilitate great ideas. To find out more about how we do this contact us.
-  .space
-  %p Are you a student? Are you a design pro?
-  %p We also want & need people to help us do great work.
-  .space
-  %h3 Let's talk.
-  %p hello@adjustcreative.com
-  .space
-  .space
+.work-with-us.lightbgblock
+  .maxwidth
+    .space
+    %h1 Work with us
+    .space
+    %p Are you lookging to partner with a full-stack design and tech team? 
+    %p Are you trying to design & build an app?
+    %p Do you need high-impact design for your brand?
+    .space
+    %h3 These are the things we're great at.
+    .space
+    %p We partner with brands, innovators and educators to help facilitate great ideas. To find out more about how we do this contact us.
+    .space
+    %p Are you a student? Are you a design pro?
+    %p We also want & need people to help us do great work.
+    .space
+    %h3 Let's talk.
+    %p hello@adjustcreative.com
+    .space
+    .space
 
 
 
@@ -91,12 +96,29 @@
     width:100%;
   }
   .feature{
+    position:relative;
     width:70%;
-    background:rgba(0,0,0,0.4);
     margin-bottom:40px;
     text-align:center;
+    cursor:pointer;
+  }
+
+  .feature .bg{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    opacity:0.3;
+    z-index: 100;
+    background-color: transparent;
+    background-size:cover !important;
+    background-position: center center !important;
   }
   .feature .inner{
+    position:relative;
+    top:0px;
+    z-index:200;
     padding:40px 0px;
     max-width:800px;
     margin-left:auto;
