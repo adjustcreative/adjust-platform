@@ -1,5 +1,7 @@
 (function(){
 
+  var SHOULD_ANIMATE = false;
+
   // https://github.com/wagerfield/flat-surface-shader
 
 
@@ -11,8 +13,10 @@
       width: 1.2,
       height: 1.2,
       depth: 10,
-      segments: 16,
-      slices: 8,
+      // segments: 16,
+      // slices: 8,
+      segments: 5,
+      slices: 2,
       xRange: 0.8,
       yRange: 0.1,
       zRange: 1.0,
@@ -28,8 +32,8 @@
       count: 2,
       xyScalar: 1,
       zOffset: 100,
-      ambient: '#3125b7',
-      diffuse: '#3125b7',
+      ambient: '#3e1a66',
+      diffuse: '#3e1a66',
       speed: 0.001,
       gravity: 1200,
       dampening: 0.95,
@@ -37,7 +41,7 @@
       maxLimit: null,
       minDistance: 20,
       maxDistance: 400,
-      autopilot: false,
+      autopilot: true,
       draw: false,
       bounds: FSS.Vector3.create(),
       step: FSS.Vector3.create(
@@ -246,7 +250,7 @@
       now = Date.now() - start;
       update();
       render();
-      requestAnimationFrame(animate);
+      if(SHOULD_ANIMATE) requestAnimationFrame(animate);
     }
 
     function update() {
@@ -484,7 +488,7 @@
 
 
     // Let there be light!
-    // initialise();
+    initialise();
   });
 
 })();
