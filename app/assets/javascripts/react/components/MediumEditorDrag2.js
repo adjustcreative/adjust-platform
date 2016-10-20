@@ -78,7 +78,7 @@
             var fileReader = new FileReader();
             fileReader.readAsDataURL(file);
 
-
+            // instead of just pushing this uploaded data into the DOM, send it to api to process first.
             var self = this;
             // attach the onload event handler, makes it easier to listen in with jasmine
             fileReader.addEventListener('load', function (e) {
@@ -86,6 +86,9 @@
               self.sendBlobToAPI(e.target.result);
             }.bind(this));
         },
+
+
+        // send to api for iamge processing..
 
         sendBlobToAPI: function( blob ){
           // console.log("send image file to api", blob);
@@ -99,10 +102,10 @@
             method: method,
             data: data,
           }).complete(function (response) {
+            // when a response from API, add the image file source in an image file to DOM
             // console.log('database response')
             var src = response.responseText;
-
-
+            // add it to the DOM
             var addImageElement = self.document.createElement('img');
             addImageElement.src = src;
             MediumEditor.util.insertHTMLCommand(self.document, addImageElement.outerHTML);
@@ -114,5 +117,6 @@
 
     });
 
+    // replace the default MediumEditor extension for fileDragging to this override class...
     MediumEditor.extensions.fileDragging = FileDragging2;
 }());
