@@ -1,10 +1,11 @@
 var PageEdit = React.createClass({
 
   componentWillMount: function() {
+    this.adjst_editor_control_toggle_section_id = Guid.get();
+    this.save_btn_id = Guid.get();
     // initial values
     this.store = {};
     for( var p in this.props ) this.store[p] = this.props[p];
-    this.save_btn_id = Guid.get();
     // listen for updates..
     CSEventManager.addListener("PAGE_EDIT_CHANGE", this, "onPageEditChange" );
   },
@@ -73,25 +74,38 @@ var PageEdit = React.createClass({
 
     var options = {
       autoLink: true,
-      imageDragging: true
+      imageDragging: true,
+
+      toolbar: {
+        buttons:["bold", "italic", "underline", "link", "h2", "h3", "blockquote","section_block_toggle" ]
+      },
+      
+      buttonLabels: 'fontawesome',
+      extensions:{
+        "section_block_toggle": new MediumEditorSectionBlockToggle()
+      }
+
     }
     
     return(
-      <article>
+      <div>
+        <article>
 
-        <div className="h1" dangerouslySetInnerHTML={{__html: this.props.title}} />
+          <div className="h1" dangerouslySetInnerHTML={{__html: this.props.title}} />
 
-        <MediumEditorReact 
-          className="body" 
-          options={ options }
-          tag="p"
-          onChange={this.handleChange}
-          text={ bodyData.html }
-          data={ bodyData } />
+          <MediumEditorReact 
+            className="body" 
+            options={ options }
+            tag="p"
+            onChange={this.handleChange}
+            text={ bodyData.html }
+            data={ bodyData } />
 
-        <button id={this.save_btn_id}>Save</button>
+          <button id={this.save_btn_id}>Save</button>
 
-      </article>
+        </article>
+
+      </div>
     )
   }
 });

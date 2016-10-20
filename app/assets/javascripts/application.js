@@ -12,8 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+//= require rangy-core
+//= require rangy-cssclassapplier
+//= require rangy-highlighter
+//= require rangy-selectionsaverestore
+//= require rangy-serializer
+//= require rangy-textrange
+
 //= require medium-editor
-//= require react/components/MediumEditorDrag2
+//= require medium_editor_components/MediumEditorDrag2
+//= require medium_editor_components/MediumEditorSectionBlockToggle
 //= require react
 //= require react_ujs
 //= require_tree .

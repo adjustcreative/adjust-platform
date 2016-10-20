@@ -19,6 +19,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem "responders" # needed for rails 5 respond_to
 gem 'medium-editor-rails'
+gem 'rangy-rails'
 gem 'react-rails', '~> 1.6.0'
 gem 'font-awesome-rails'
 gem "autoprefixer-rails"
