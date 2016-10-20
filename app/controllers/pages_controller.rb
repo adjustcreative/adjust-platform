@@ -16,6 +16,7 @@ class PagesController < ApplicationController
     @page = Page.new
   end
   
+  
   def create
     @page = Page.new( pages_params )
     if @page.save

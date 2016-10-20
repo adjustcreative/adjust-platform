@@ -38,13 +38,13 @@ var PageEdit = React.createClass({
   submitChange:function(){
     
     // console.log('submit changes to database', this.store.title);
-
     var self = this;
 
     var data = {
       title: this.store.title,
       subtitle: this.store.subtitle,
-      body: this.store.body
+      body: this.store.body,
+      featured_image: this.store.featured_image,
     }
 
     var api = "/api/pages/"+this.props.page_id;
@@ -78,12 +78,12 @@ var PageEdit = React.createClass({
 
 
   handleImageChange: function(e){
-    console.log("image change", e.target.value);
-    self.sendBlobToAPI(e.target.value);
+    // console.log("image change", e.target.value);
+    this.sendBlobToAPI(e.target.value);
   },
   // send to api for iamge processing..
   sendBlobToAPI: function( blob ){
-    // console.log("send image file to api", blob);
+    console.log("send image file to api");
     var self = this;
     var data = { image: blob };
     var api = "/api/media/images";
@@ -94,14 +94,9 @@ var PageEdit = React.createClass({
       method: method,
       data: data,
     }).complete(function (response) {
-      // when a response from API, add the image file source in an image file to DOM
-      // console.log('database response')
-      var src = response.responseText;
-      // add it to the DOM
-      var addImageElement = self.document.createElement('img');
-      addImageElement.src = src;
-      MediumEditor.util.insertHTMLCommand(self.document, addImageElement.outerHTML);
-
+      // add src to store and update..
+      self.store.featured_image = response.responseText;
+      self.forceUpdate();
     });
 
   },
@@ -113,10 +108,22 @@ var PageEdit = React.createClass({
     var subtitleData = { fieldName: "subtitle", html: this.store.subtitle };
     var bodyData = { fieldName: "body", html: this.store.body };
 
+    var headerStyle = {}
+
+    if( this.store.featured_image ){
+      headerStyle = {
+        backgroundImage: 'url(' + this.store.featured_image + ')',
+        backgroundSize: "cover"
+      }
+    }
+
+
+    console.log(this.store.featured_image)
+
     return(
       <article>
 
-        <header className="article-header">
+        <header className="article-header" style={headerStyle}>
 
           <ImageDragHandler 
             onChange={ this.handleImageChange } />

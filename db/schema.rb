@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012190139) do
+ActiveRecord::Schema.define(version: 20161020103529) do
 
   create_table "pages", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.string   "slug",        null: false
+    t.string   "title",          null: false
+    t.string   "slug",           null: false
     t.string   "subtitle"
     t.text     "description"
     t.text     "body"
     t.integer  "author_id"
     t.integer  "parent_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "featured_image"
   end
 
 end
