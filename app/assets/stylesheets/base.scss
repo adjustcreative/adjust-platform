@@ -6,8 +6,9 @@ $bgcolor: #3e1a66;
 $textcolor: white;
 
 body{
-  background: asset_url('adjust-creative-bg.jpg') $bgcolor;
-  background-size: cover;
+  // background: asset_url('adjust-creative-bg.jpg') $bgcolor;
+  // background-size: cover;
+  background: $bgcolor;
   color: $textcolor;
 }
 

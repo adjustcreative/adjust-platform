@@ -9,10 +9,6 @@ var MediumEditorSectionBlockToggle = MediumEditor.Extension.extend({
 
   init: function(){
 
-    this.classApplier = rangy.createCssClassApplier( 'section_block_toggle', {
-      elementTagName: 'blockquote'
-    });
-
     this.button = this.document.createElement("button");
     this.button.classList.add("medium-editor-action");
     this.button.innerHTML = "Adj";
@@ -26,8 +22,25 @@ var MediumEditorSectionBlockToggle = MediumEditor.Extension.extend({
   },
 
   handleClick: function(event){
-    this.classApplier.toggleSelection();
+    // console.log(this.wrapSelection, event.target)
+    // toggle..
+    if(this.toggled) this.unwrapSelection();
+    else this.wrapSelection();
+    // this.classApplier.toggleSelection();
     this.base.checkContentChanged();
+  },
+
+  toggled: false,
+  selection_text: "",
+
+  wrapSelection: function() {
+    this.selection_text = TextUtil.getSelectionHtml();
+    var wrappedText = "<section>" + this.selection_text + "</section>";
+    this.base.pasteHTML(wrappedText);
+  },
+
+  unwrapSelection: function(){
+
   }
 
 });
