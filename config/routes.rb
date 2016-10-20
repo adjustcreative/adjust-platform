@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "homepages#home"
 
   # dynamic static pages
-  get '*template_path' => 'pages#show'
+  get '/p/*template_path' => 'pages#show'
 
   # dynamic articles
   resources :articles, except: [:show]
