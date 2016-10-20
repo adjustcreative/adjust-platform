@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
 
 
   def edit
-    @article = Article.find( params[:id] )
+    @article = Article.where( slug: params[:id] ).first
   end
 
   

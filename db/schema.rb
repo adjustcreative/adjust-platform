@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020144650) do
+ActiveRecord::Schema.define(version: 20161020195207) do
 
   create_table "articles", force: :cascade do |t|
-    t.string   "slug",          null: false
-    t.string   "title",         null: false
+    t.string   "slug",           null: false
+    t.string   "title",          null: false
     t.string   "subtitle"
     t.text     "description"
     t.text     "body"
-    t.string   "featured_imag"
+    t.string   "featured_image"
     t.string   "color1"
     t.string   "color2"
     t.integer  "author_id"
     t.integer  "parent_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end

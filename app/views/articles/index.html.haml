@@ -3,7 +3,8 @@
 
   - if @articles.present?
     - @articles.each do |p|
-      %div= link_to( p.title, "/" << p.slug )
+      = link_to "/articles/" << p.title, "/" << p.slug do
+        %span p.title
 
   .space
   = link_to "Add New Article", new_article_path, class: "button"

@@ -8,17 +8,17 @@ class Api::ArticlesController < Api::ApiController
     @article.subtitle = params[:subtitle]
     @article.body = params[:body]
 
-    @article.slug = params[:title].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+    @article.slug = params[:slug].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+    # @article.slug = params[:title]
 
     if @article.save
       flash[:notice] = "Page has been saved."
       # reload the routes..
       Rails.application.reload_routes!
       # redirect back to list..
-      redirect_to "/" << @article.slug << "/edit"
+      render json: "SUCCESS: Page saved."  
     else
-      flash[:error] = "Problem saving page."
-      render :new
+      render json: "ERROR: Problem saving page." 
     end
   end
 
