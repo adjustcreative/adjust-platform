@@ -20,24 +20,21 @@ var MediumEditorReact = React.createClass({
     var self = this;
     var dom = self.domNode;
 
-    var options;
-    if( this.props.options ){
-      options = this.props.options;
-    }else{
-      options = {
-        autoLink: true,
-        imageDragging: true,
-        toolbar: {
-          buttons:["bold", "italic", "underline", "link", "h1", "h2", "h3", "blockquote", "section_block_toggle" ]
-        },
-        buttonLabels: 'fontawesome',
-        extensions:{
-          "section_block_toggle": new MediumEditorSectionBlockToggle()
-        }
+    self.medium = new MediumEditor(dom, {
+      autoLink: true,
+      imageDragging: true,
+      toolbar: {
+        buttons: ["bold", "italic", "underline", "anchor", "h2", "h3", "quote", "section_block_toggle"]
+      },
+      // buttonLabels: 'fontawesome',
+      extensions: {
+        "section_block_toggle": new MediumEditorSectionBlockToggle()
       }
-    }
+    });
 
-    self.medium = new MediumEditor(dom, this.props.options);
+
+
+
     self.medium.subscribe("editableInput", function(e){
       self.store.updated = true;
       self.change( dom.innerHTML );
