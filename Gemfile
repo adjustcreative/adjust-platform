@@ -28,6 +28,7 @@ gem 'time_difference'
 gem 'simple_form'
 gem 'kaminari'
 gem 'gibbon'
+gem 'carrierwave'
 # gem 'gmaps4rails'
 # gem 'rename'
 
