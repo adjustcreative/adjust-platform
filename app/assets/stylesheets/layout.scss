@@ -43,7 +43,23 @@
   padding:40px 0px;
 
   .article-header-content{
-    bottom:0px;
+    width:100%;
+    bottom: 40px;
+    position: absolute;
+  }
+
+  .dropzone{
+    border: 1px dashed #000;
+    text-align: center;
+    padding: 110px 0px;
+    font-weight: bold;
+    font-size: 1.5em;
+    opacity: 0.3;
+  }
+
+  .dropzone.hover{
+    border-color:red;
+    color:red;
   }
 }
 
@@ -66,7 +82,7 @@
   }
 
 
-  p, h1, h2, h3, blockquote{
+  p, h1, h2, h3, blockquote, .dropzone{
     width:90%;
     max-width:800px;
     margin-left:auto;

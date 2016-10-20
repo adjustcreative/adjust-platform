@@ -61,8 +61,13 @@ var PageEdit = React.createClass({
 
   },
 
-  handleTitleChange: function(text, medium) {
-    this.store.title = text;
+  handleTitleChange: function(e) {
+    // console.log("handle title change", e.target.);
+    this.store.title = e.target.value;
+    this.forceUpdate();
+  },
+  handleSubtitleChange: function(e) {
+    this.store.subtitle = e.target.value;
     this.forceUpdate();
   },
   handleBodyChange: function(text, medium) {
@@ -70,29 +75,71 @@ var PageEdit = React.createClass({
     this.forceUpdate();
   },
 
+
+
+  handleImageChange: function(e){
+    console.log("image change", e.target.value);
+    self.sendBlobToAPI(e.target.value);
+  },
+  // send to api for iamge processing..
+  sendBlobToAPI: function( blob ){
+    // console.log("send image file to api", blob);
+    var self = this;
+    var data = { image: blob };
+    var api = "/api/media/images";
+    var method = "post";
+
+    self.serverRequest = $.ajax({
+      url: api,
+      method: method,
+      data: data,
+    }).complete(function (response) {
+      // when a response from API, add the image file source in an image file to DOM
+      // console.log('database response')
+      var src = response.responseText;
+      // add it to the DOM
+      var addImageElement = self.document.createElement('img');
+      addImageElement.src = src;
+      MediumEditor.util.insertHTMLCommand(self.document, addImageElement.outerHTML);
+
+    });
+
+  },
+              
+
   render:function(){
 
     var titleData = { fieldName: "title", html: this.store.title };
     var subtitleData = { fieldName: "subtitle", html: this.store.subtitle };
     var bodyData = { fieldName: "body", html: this.store.body };
 
-    //<button id={this.save_btn_id}>Save</button>
-    
     return(
       <article>
 
         <header className="article-header">
+
+          <ImageDragHandler 
+            onChange={ this.handleImageChange } />
+
           <div className="article-header-content">
             <p className="eyebrow">Case Study</p>
-            <h1>{this.store.title}</h1>
-            <h3>{this.store.subtitle}</h3>
+            <h1>
+              <SimpleContentEditorReact
+                onChange={ this.handleTitleChange }
+                html={this.props.title} />
+            </h1>
+            <h3>
+              <SimpleContentEditorReact
+                onChange={ this.handleSubtitleChange }
+                html={this.props.subtitle} />
+            </h3>
           </div>
         </header>
 
         <MediumEditorReact 
           className="body" 
           tag="p"
-          onChange={this.handleBodyChange}
+          onChange={ this.handleBodyChange }
           text={ bodyData.html }
           data={ bodyData } />
 
