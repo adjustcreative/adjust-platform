@@ -72,7 +72,8 @@ var PageEdit = React.createClass({
     var bodyData = { fieldName: "body", html: this.store.body };
 
     var options = {
-      autoLink: true
+      autoLink: true,
+      imageDragging: true
     }
     
     return(
