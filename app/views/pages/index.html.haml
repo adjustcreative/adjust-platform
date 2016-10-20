@@ -1,7 +1,0 @@
-.maxwidth
-  %h1 List Pages / Adjust Homepage
-
-  - if @pages.present?
-    - @pages.each do |p|
-      %div= link_to( p.title, "/" << p.slug )
-

@@ -1,4 +1,4 @@
-var Page = React.createClass({
+var Article = React.createClass({
 
   etInitialState: function() { 
   },

@@ -1,0 +1,10 @@
+.maxwidth
+  %h1 All Articles
+
+  - if @articles.present?
+    - @articles.each do |p|
+      %div= link_to( p.title, "/" << p.slug )
+
+  .space
+  = link_to "Add New Article", new_article_path, class: "button"
+

@@ -1,0 +1,16 @@
+
+
+- if @article.color1
+  :javascript
+    window.PAGE_COLOR_1 = '#{@article.color1}';
+    window.PAGE_COLOR_2 = '#{@article.color2}';
+
+  :css
+    body{
+      background-color: #{@article.color1};
+    }
+    .article-header-content h1, .medium-element section h2, .medium-editor-element section h2{
+      color: #{@article.color1};
+    }
+    
+= react_component("ArticleNew", { title: "<div>*Article Title</div>", subtitle: "<div>*Article Subtitle</div>", body: "<p>*Body..</p>" })

@@ -1,4 +1,4 @@
-var PageHeaderEditor = React.createClass({
+var ArticleHeaderEditor = React.createClass({
 
   etInitialState: function() { 
   },

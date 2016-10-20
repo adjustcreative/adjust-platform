@@ -1,4 +1,4 @@
-class Page < ActiveRecord::Base
+class Article < ActiveRecord::Base
 
   # belongs_to :user 
   # has_many :pages

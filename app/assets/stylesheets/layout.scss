@@ -8,11 +8,23 @@
   height:40px;
 }
 
+.pad{ }
+
+.lightbgblock{
+  background:rgba(255,255,255,0.9);
+  color:rgba(0,0,0,0.8);
+}
+.lightbgblock button, .lightbgblock .button{
+  color:rgba(0,0,0,0.8);
+  border-color:rgba(0,0,0,0.8);
+}
+
+
 
 // HEADER
 
 #site-header{
-  height:50px;
+  height:80px;
   padding:20px;
 
   .logo{

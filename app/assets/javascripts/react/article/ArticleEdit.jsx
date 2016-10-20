@@ -1,4 +1,4 @@
-var PageEdit = React.createClass({
+var ArticleEdit = React.createClass({
 
   componentWillMount: function() {
     this.adjst_editor_control_toggle_section_id = Guid.get();
