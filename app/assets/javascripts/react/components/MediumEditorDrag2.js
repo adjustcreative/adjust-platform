@@ -82,13 +82,13 @@
             var self = this;
             // attach the onload event handler, makes it easier to listen in with jasmine
             fileReader.addEventListener('load', function (e) {
-              console.log("insert image file", e);
+              // console.log("insert image file", e);
               self.sendBlobToAPI(e.target.result);
             }.bind(this));
         },
 
         sendBlobToAPI: function( blob ){
-          console.log("send image file to api", blob);
+          // console.log("send image file to api", blob);
           var self = this;
           var data = { image: blob };
           var api = "/api/media/images";
@@ -100,14 +100,14 @@
             data: data,
           }).complete(function (response) {
             // console.log('database response')
-            console.log(response);
+            var src = response.responseText;
+
+
+            var addImageElement = self.document.createElement('img');
+            addImageElement.src = src;
+            MediumEditor.util.insertHTMLCommand(self.document, addImageElement.outerHTML);
+
           });
-
-
-
-          // var addImageElement = this.document.createElement('img');
-          // addImageElement.src = e.target.result;
-          // MediumEditor.util.insertHTMLCommand(this.document, addImageElement.outerHTML);
 
         }
 
