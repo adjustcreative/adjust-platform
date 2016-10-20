@@ -90,10 +90,10 @@
         sendBlobToAPI: function( blob ){
           console.log("send image file to api", blob);
           var self = this;
-          var data = { blob: blob };
+          var data = { image: blob };
           var api = "/api/media/images";
           var method = "post";
-          
+
           self.serverRequest = $.ajax({
             url: api,
             method: method,

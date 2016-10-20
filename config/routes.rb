@@ -17,9 +17,13 @@ Rails.application.routes.draw do
 
 
   # api
-
   namespace :api do
     resources :pages, only: [:update, :create]
+
+    #media
+    namespace :media do
+      resources :images, only: [:delete, :show, :create]
+    end
   end
 
 end

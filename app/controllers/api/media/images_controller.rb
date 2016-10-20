@@ -3,6 +3,8 @@ class Api::Media::ImagesController < Api::ApiController
 
   
   def create
+    
+
     binding.pry
   end
 
