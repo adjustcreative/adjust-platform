@@ -3,9 +3,7 @@
 // with the help of: https://github.com/wangzuo/react-medium-editor/blob/master/dist/editor.js
 
 
-var MediumEditorReact = React.createClass({
-
-  medium: undefined,
+var SimpleContentEditorReact = React.createClass({
 
   store: {
     text: "",
@@ -19,25 +17,14 @@ var MediumEditorReact = React.createClass({
   componentDidMount: function() {
     var self = this;
     var dom = self.domNode;
-
-    var options;
-    if( this.props.options ){
-      options = this.props.options;
-    }else{
-      options = {
-        autoLink: true,
-        imageDragging: true,
-        toolbar: {
-          buttons:["bold", "italic", "underline", "link", "h1", "h2", "h3", "blockquote", "section_block_toggle" ]
-        },
-        buttonLabels: 'fontawesome',
-        extensions:{
-          "section_block_toggle": new MediumEditorSectionBlockToggle()
-        }
+    var mediumOptions = {
+      autoLink: false,
+      imageDragging: false,
+      toolbar: {
+        buttons:[]
       }
-    }
-
-    self.medium = new MediumEditor(dom, this.props.options);
+    };
+    self.medium = new MediumEditor(dom, {mediumOptions});
     self.medium.subscribe("editableInput", function(e){
       self.store.updated = true;
       self.change( dom.innerHTML );

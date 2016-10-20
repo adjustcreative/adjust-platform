@@ -33,7 +33,7 @@
       xyScalar: 1,
       zOffset: 100,
       ambient: '#3e1a66',
-      diffuse: '#3e1a66',
+      diffuse: '#642788',
       speed: 0.001,
       gravity: 1200,
       dampening: 0.95,
@@ -473,7 +473,7 @@
       FSS.Vector3.set(attractor, event.x, renderer.height - event.y);
       FSS.Vector3.subtract(attractor, center);
       LIGHT.autopilot = !LIGHT.autopilot;
-      autopilotController.updateDisplay();
+      if(autopilotController) autopilotController.updateDisplay();
     }
 
     function onMouseMove(event) {

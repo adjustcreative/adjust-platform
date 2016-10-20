@@ -61,7 +61,11 @@ var PageEdit = React.createClass({
 
   },
 
-  handleChange: function(text, medium) {
+  handleTitleChange: function(text, medium) {
+    this.store.title = text;
+    this.forceUpdate();
+  },
+  handleBodyChange: function(text, medium) {
     this.store.body = text;
     this.forceUpdate();
   },
@@ -72,40 +76,27 @@ var PageEdit = React.createClass({
     var subtitleData = { fieldName: "subtitle", html: this.store.subtitle };
     var bodyData = { fieldName: "body", html: this.store.body };
 
-    var options = {
-      autoLink: true,
-      imageDragging: true,
-
-      toolbar: {
-        buttons:["bold", "italic", "underline", "link", "h2", "h3", "blockquote","section_block_toggle" ]
-      },
-      
-      buttonLabels: 'fontawesome',
-      extensions:{
-        "section_block_toggle": new MediumEditorSectionBlockToggle()
-      }
-
-    }
+    //<button id={this.save_btn_id}>Save</button>
     
     return(
-      <div>
-        <article>
+      <article>
 
-          <div className="h1" dangerouslySetInnerHTML={{__html: this.props.title}} />
+        <header className="article-header">
+          <div className="article-header-content">
+            <p className="eyebrow">Case Study</p>
+            <h1>{this.store.title}</h1>
+            <h3>{this.store.subtitle}</h3>
+          </div>
+        </header>
 
-          <MediumEditorReact 
-            className="body" 
-            options={ options }
-            tag="p"
-            onChange={this.handleChange}
-            text={ bodyData.html }
-            data={ bodyData } />
+        <MediumEditorReact 
+          className="body" 
+          tag="p"
+          onChange={this.handleBodyChange}
+          text={ bodyData.html }
+          data={ bodyData } />
 
-          <button id={this.save_btn_id}>Save</button>
-
-        </article>
-
-      </div>
+      </article>
     )
   }
 });

@@ -21,8 +21,8 @@
 //= require rangy-textrange
 
 //= require medium-editor
-//= require medium_editor_components/MediumEditorDrag2
-//= require medium_editor_components/MediumEditorSectionBlockToggle
+//= require components/medium_extensions/MediumEditorDrag2
+//= require components/medium_extensions/MediumEditorSectionBlockToggle
 //= require react
 //= require react_ujs
 //= require_tree .

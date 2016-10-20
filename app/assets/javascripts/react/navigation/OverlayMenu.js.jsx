@@ -1,12 +1,17 @@
-var Page = React.createClass({
+var OverlayMenu = React.createClass({
 
   etInitialState: function() { 
   },
 
   componentWillMount: function() {
+    CSEventManager.addListener( "OPEN_GLOBAL_MENU", this, "onOpenGlobalMenu" );
   },
 
   componentDidMount: function() {
+  },
+
+  onOpenGlobalMenu: function(){
+
   },
 
   render:function(){
@@ -23,22 +28,4 @@ var Page = React.createClass({
     )
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

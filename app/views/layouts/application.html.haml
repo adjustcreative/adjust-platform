@@ -16,4 +16,8 @@
       .main-wrapper
         = yield
       = render 'layouts/shared/footer'
+      /= render 'layouts/shared/overlay_menu'
+
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
     

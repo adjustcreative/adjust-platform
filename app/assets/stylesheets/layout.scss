@@ -32,7 +32,24 @@
 
 }
 
-.medium-editor-element, .medium-element{
+
+.article-header{
+
+  position:relative;
+  background:rgba(255,255,255,0.9);
+  color:rgba(0,0,0,0.7);
+  width:100%;
+  min-height:600px;
+  padding:40px 0px;
+
+  .article-header-content{
+    bottom:0px;
+  }
+}
+
+
+
+.medium-editor-element, .medium-element, .article-header{
   img{
     width: 90%;
     height: auto;
