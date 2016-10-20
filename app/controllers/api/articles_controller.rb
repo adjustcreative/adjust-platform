@@ -7,7 +7,6 @@ class Api::ArticlesController < Api::ApiController
     @article.title = params[:title]
     @article.subtitle = params[:subtitle]
     @article.body = params[:body]
-
     @article.slug = params[:slug].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
     # @article.slug = params[:title]
 
