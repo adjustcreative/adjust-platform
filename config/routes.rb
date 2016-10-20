@@ -4,29 +4,29 @@ Rails.application.routes.draw do
 
   root "homepages#home"
 
-  # dynamic static pages
- get '*template_path' => 'pages#show'
+ #  # dynamic static pages
+ # get '*template_path' => 'pages#show'
 
-  # dynamic articles
-  resources :articles, except: [:show]
+ #  # dynamic articles
+ #  resources :articles, except: [:show]
 
-  # loop through all pages and generate a route for them..
-  Article.all.each do |p|
-    # show article
-    get '/articles/' << p.slug, to: 'articles#show', defaults: {id:p.id}
-    # edit article
-    get '/articles/' << p.slug << '/edit', to: 'articles#edit', defaults: {id:p.id}
-  end
+ #  # loop through all pages and generate a route for them..
+ #  Article.all.each do |p|
+ #    # show article
+ #    get '/articles/' << p.slug, to: 'articles#show', defaults: {id:p.id}
+ #    # edit article
+ #    get '/articles/' << p.slug << '/edit', to: 'articles#edit', defaults: {id:p.id}
+ #  end
 
 
-  # api
-  namespace :api do
-    resources :articles, only: [:update, :create]
+ #  # api
+ #  namespace :api do
+ #    resources :articles, only: [:update, :create]
 
-    #media
-    namespace :media do
-      resources :images, only: [:delete, :show, :create]
-    end
-  end
+ #    #media
+ #    namespace :media do
+ #      resources :images, only: [:delete, :show, :create]
+ #    end
+ #  end
 
 end
