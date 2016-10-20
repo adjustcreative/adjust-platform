@@ -26,9 +26,13 @@ class Api::PagesController < Api::ApiController
   
   def update 
     @page = Page.find( params[:id] )
+    
     @page.title = params[:title]
     @page.subtitle = params[:subtitle]
     @page.featured_image = params[:featured_image]
+    @page.color1 = params[:color1]
+    @page.color2 = params[:color2]
+
     @page.body = params[:body]
     if @page.save
       render json: "SUCCESS: Page Updated."  

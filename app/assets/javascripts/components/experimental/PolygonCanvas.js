@@ -1,6 +1,8 @@
+
+
 (function(){
 
-  var SHOULD_ANIMATE = false;
+  var SHOULD_ANIMATE = true;
 
   // https://github.com/wagerfield/flat-surface-shader
 
@@ -32,8 +34,8 @@
       count: 2,
       xyScalar: 1,
       zOffset: 100,
-      ambient: '#3e1a66',
-      diffuse: '#642788',
+      ambient: PAGE_COLOR_1,
+      diffuse: PAGE_COLOR_2,
       speed: 0.001,
       gravity: 1200,
       dampening: 0.95,

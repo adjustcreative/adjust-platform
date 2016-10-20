@@ -1,3 +1,16 @@
 
-.maxwidth
-  = react_component("PageNew", { title: "*Page Title", subtitle: "*Page Subtitle", body: "*body.." })
+
+- if @page.color1
+  :javascript
+    window.PAGE_COLOR_1 = '#{@page.color1}';
+    window.PAGE_COLOR_2 = '#{@page.color2}';
+
+  :css
+    body{
+      background-color: #{@page.color1};
+    }
+    .article-header-content h1, .medium-element section h2, .medium-editor-element section h2{
+      color: #{@page.color1};
+    }
+    
+= react_component("PageNew", { title: "*Page Title", subtitle: "*Page Subtitle", body: "*body.." })

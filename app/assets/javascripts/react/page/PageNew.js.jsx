@@ -1,10 +1,14 @@
 var PageNew = React.createClass({
 
   componentWillMount: function() {
+    this.adjst_editor_control_toggle_section_id = Guid.get();
+    this.save_btn_id = Guid.get();
+
+    this.color1field_id = Guid.get();
+    this.color2field_id = Guid.get();
     // initial values
     this.store = {};
     for( var p in this.props ) this.store[p] = this.props[p];
-    this.save_btn_id = Guid.get();
     // listen for updates..
     CSEventManager.addListener("PAGE_EDIT_CHANGE", this, "onPageEditChange" );
   },
@@ -19,26 +23,42 @@ var PageNew = React.createClass({
     $("#"+this.save_btn_id).on("click", function(){
       self.submitChange();
     });
-  },
-
-  onPageEditChange: function( data ){
-
-    // update store..
-    this.store[data.fieldName] = data.html;
-
-    // this.forceUpdate();
+    // save when pressing ctrl+s
+    $(window).on("keydown", function(e){
+      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+        e.preventDefault();
+        if(!self.keyboardsave){
+          self.keyboardsave = true;
+          self.submitChange();
+        }
+      }
+    });
+    $(window).on("keyup", function(e){
+      self.keyboardsave = false;
+    });
   },
 
   submitChange:function(){
     
     // console.log('submit changes to database', this.store.title);
-
     var self = this;
+
+    self.store.color1 = $("#"+this.color1field_id).val();
+    self.store.color2 = $("#"+this.color2field_id).val();
+
+
+    $("body").css("background-color", self.store.color1);
+    $(".article-header-content h1, .medium-element section h2, .medium-editor-element section h2").css("color", self.store.color1);
+    
+
 
     var data = {
       title: this.store.title,
       subtitle: this.store.subtitle,
-      body: this.store.body
+      body: this.store.body,
+      featured_image: this.store.featured_image,
+      color1: this.store.color1,
+      color2: this.store.color2,
     }
 
     var api = "/api/pages";
@@ -55,18 +75,100 @@ var PageNew = React.createClass({
 
   },
 
+  handleTitleChange: function(e) {
+    // console.log("handle title change", e.target.);
+    this.store.title = e.target.value;
+    this.forceUpdate();
+  },
+  handleSubtitleChange: function(e) {
+    this.store.subtitle = e.target.value;
+    this.forceUpdate();
+  },
+  handleBodyChange: function(text, medium) {
+    this.store.body = text;
+    this.forceUpdate();
+  },
+
+
+
+  handleImageChange: function(e){
+    // console.log("image change", e.target.value);
+    this.sendBlobToAPI(e.target.value);
+  },
+  // send to api for iamge processing..
+  sendBlobToAPI: function( blob ){
+    console.log("send image file to api");
+    var self = this;
+    var data = { image: blob };
+    var api = "/api/media/images";
+    var method = "post";
+
+    self.serverRequest = $.ajax({
+      url: api,
+      method: method,
+      data: data,
+    }).complete(function (response) {
+      // add src to store and update..
+      self.store.featured_image = response.responseText;
+      self.forceUpdate();
+    });
+
+  },
+              
+
   render:function(){
 
     var titleData = { fieldName: "title", html: this.store.title };
+    var subtitleData = { fieldName: "subtitle", html: this.store.subtitle };
     var bodyData = { fieldName: "body", html: this.store.body };
+
+    var headerStyle = {}
+
+    if( this.store.featured_image ){
+      headerStyle = {
+        backgroundImage: 'url(' + this.store.featured_image + ')',
+        backgroundSize: "cover"
+      }
+    }
+
     
+    // console.log(this.store.featured_image)
+
     return(
       <article>
 
-        <ContentEditable className="h1" data={ titleData } />
-        <ContentEditable className="body" data={ bodyData } />
+        <header className="article-header" style={headerStyle}>
 
-        <button id={this.save_btn_id}>Save</button>
+          <div className="page-colors">
+            <input id={this.color1field_id} type="text" className="color1" placeholder="#color1" maxLength="7" defaultValue={this.store.color1} />
+            <input id={this.color2field_id} type="text" className="color2" placeholder="#color2" maxLength="7" defaultValue={this.store.color2} />
+          </div>
+
+          <ImageDragHandler 
+            onChange={ this.handleImageChange } />
+
+          <div className="article-header-content">
+            <p className="eyebrow">Case Study</p>
+            <h1>
+              <SimpleContentEditorReact
+                onChange={ this.handleTitleChange }
+                html={this.props.title} />
+            </h1>
+            <h3>
+              <SimpleContentEditorReact
+                onChange={ this.handleSubtitleChange }
+                html={this.props.subtitle} />
+            </h3>
+          </div>
+        </header>
+
+        <MediumEditorReact 
+          className="body" 
+          tag="p"
+          onChange={ this.handleBodyChange }
+          text={ bodyData.html }
+          data={ bodyData } />
+
       </article>
     )
   }

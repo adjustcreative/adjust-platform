@@ -5,7 +5,11 @@
     %title Adjust Creative
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+
   %body
+    :javascript
+      window.PAGE_COLOR_1 = '#3e1a66';
+      window.PAGE_COLOR_2 = '#642788';
     
     #fss-container
       #fss-controls
