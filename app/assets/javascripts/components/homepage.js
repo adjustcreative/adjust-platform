@@ -27,7 +27,7 @@ var Homepage = {
       slide.css({
         "position": "relative",
         width: "100%",
-        "min-height": $(window).height() * 0.8,
+        "min-height": $(window).height() * 0.8
       });
       self.slides.push( slide );
     });
