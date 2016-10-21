@@ -6,7 +6,31 @@
     .inner{ :style => "position: absolute; top: 50%; transform: translateY(-50%); left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 800px;"}
       %h1 We believe good design matters.
       .space
-      %h3 For that reason, we've spent our lives honing and crafting the ability to help people communicate with design and technology, effectively, and strategically.
+      %h3 For that reason, we've spent our lives honing and crafting the ability to help people communicate with design and technology, effectively, and strategically
+
+.home-services.lightbgblock
+  .maxwidth
+    %h1 What we do
+
+    .space
+    %h3 We are an agile product design agency.
+
+    %p We use lean methods to create and develop interactive products and experiences with a people-first approach. Our team has the skills to take a project from concept to launch but can also work just as effectively to augment a team.
+
+    .space
+    = link_to "/capabilities" do
+      %button View our Capabilities
+    .space
+
+.home-features
+  #case-study-tei.feature{ :style => "background-color:#bd002f !important;"}
+    .bg{ :style => "background-image: url(#{image_path "tei-homepage.jpg"})" }
+    .inner
+      %p Case Study
+      %h1 Real-time video & Social education
+      %h3 Together with The Entertainment Institute, we created a valuable and sustainable education & communication platform that helps artists be closer to their fans while keeping up with their demanding lifestyles with a year-round destination for the communities to thrive and interact in real-time with video chat & modern social features.
+      .space
+      = link_to "View Case Study", "/articles/the-entertainment-institute", class: "button"
 
   #case-study-himss.feature{ :style => "background-color:#131384 !important;"}
     .bg{ :style => "background-image: url(#{image_path "himss-homepage.jpg"})" }
@@ -16,15 +40,6 @@
       %h3 The HIMSS Health IT Value Suite that we designed and developed was praised at the leadership level of the HIMSS and during a McKinsey audit was identified one of a few key pillars to build upon. Analytics provides backup in the form of data to these opinions—the Value Suite has astronomically higher statistics when compared to the rest of himss.org and industry averages.
       .space
       = link_to "View Case Study", "/articles/himss", class: "button"
-
-  #case-study-tei.feature{ :style => "background-color:#bd002f !important;"}
-    .bg{ :style => "background-image: url(#{image_path "tei-homepage.jpg"})" }
-    .inner
-      %p Case Study
-      %h1 Ground-up social education platform
-      %h3 Together with The Entertainment Institute, we created a valuable and sustainable education & communication platform that helps artists be closer to their fans while keeping up with their demanding lifestyles with a year-round destination for the communities to thrive and interact in real-time with video chat & modern social features.
-      .space
-      = link_to "View Case Study", "/articles/the-entertainment-institute", class: "button"
 
   #case-study-peruse.feature{ :style => "background-color:rgb(77, 17, 88) !important"}
     .bg{ :style => "background-image: url(#{image_path "peruse-homepage.jpg"})" }
@@ -44,22 +59,6 @@
       .space
       = link_to "View Case Study", "/articles/tovala", class: "button"
 
-.home-services
-  .maxwidth
-    %h1 What we do
-
-    .space
-    %h3 We are an agile product design agency.
-
-    %p We use lean methods to create and develop interactive products and experiences with a people-first approach. Our team has the skills to take a project from concept to launch but can also work just as effectively to augment a team.
-
-    .space
-    %p To see a full list of our capabilities,
-
-    .space
-    = link_to "/capabilities" do
-      %button View our Capabilities
-    .space
 
 .work-with-us.lightbgblock
   .maxwidth
@@ -98,7 +97,7 @@
   .feature{
     position:relative;
     width:70%;
-    margin-bottom:40px;
+    /*margin-bottom:40px;*/
     text-align:center;
     cursor:pointer;
   }
