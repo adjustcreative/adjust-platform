@@ -1,12 +1,41 @@
 
 
-.home-features
-  .feature
-    .bg
-    .inner{ :style => "position: absolute; top: 50%; transform: translateY(-50%); left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 800px;"}
-      %h1 We believe good design matters.
-      .space
-      %h3 For that reason, we've spent our lives honing and crafting the ability to help people communicate with design and technology, effectively, and strategically
+#hometop.hometop
+  %img#hp-adjust1{src: image_path("adjust-creative-phototext.png") }
+  %img#hp-adjust2{src: image_path("adjust-creative-we-belive-in-good-design.svg" )}
+  %div#hp-adjust3
+    %p For that reason, we've spent our lives<br>honing and crafting the ability to help people<br>communicate with design and technology,<br>effectively, and strategically
+
+:css
+  .hometop{
+    position:relative;
+    width:100%;
+
+  }
+
+  #hp-adjust1{
+    position:absolute;
+    top:0px;
+    width:90%;
+    left:5%;
+    z-index:10;
+  }
+  #hp-adjust2{
+    position:absolute;
+    width:100%;
+    z-index:20;
+  }
+  #hp-adjust3{
+    position:absolute;
+    width:100%;
+    z-index:30;
+    font-size: 0.8em;
+    letter-spacing: 0.1em;
+    line-height: 1.5em;
+  }
+
+
+
 
 .home-services.lightbgblock
   .maxwidth
@@ -96,7 +125,7 @@
   }
   .feature{
     position:relative;
-    width:70%;
+    width: 100%;
     /*margin-bottom:40px;*/
     text-align:center;
     cursor:pointer;

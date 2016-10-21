@@ -7,44 +7,49 @@ var Homepage = {
   currentIndex: 0,
 
   init: function(){
-
     var self = this;
-
-    $(".home-features").css({
-      position: "relative",
-      overflow: "hidden",
-      "min-height": $(window).height()-80
-    });
-
-    $(".home-feature-controls").css({
-      position:"absolute",
-      bottom:"0px",
-      left:$(window).width()/2,
-    });
-
-    $(".home-features .feature").each( function(i, target){
-      var slide = $(this);
-      slide.css({
-        "position": "relative",
-        width: "100%",
-        "min-height": $(window).height() * 0.8
-      });
-      self.slides.push( slide );
-    });
     $(window).resize( function(){ self.resize(); });
+    self.resize();
   },
 
 
   resize: function(){
+    var windowObj = $(window);
+    var hometop = $("#hometop");
+    var adj1 = $("#hp-adjust1");
+    var adj2 = $("#hp-adjust2");
+    var adj3 = $("#hp-adjust3");
+
+    var wh = windowObj.height();
+    var ww = windowObj.width();
+
+    hometop.css({
+      "min-height": wh-80
+    });
+
+    adj1.css({
+      "top": wh*0.15
+    });
+
+    adj2.css({
+      "top": adj1.offset().top
+    });
+
+    adj3.css({
+      "top": (adj2.offset().top-50) + (ww*0.15),
+      "left": (ww*0.22),
+
+    });
+
     $(".home-features").css({
       position: "relative",
-      "min-height": $(window).height()
+      "min-height": windowObj.height()
     });
     for(var i=0; i<this.slides.length; i++){
       var slide = this.slides[i];
       slide.css({
         width: "100%",
-        "min-height": $(window).height() * 0.8,
+        "min-height": wh * 0.8,
       });
     }
   },
