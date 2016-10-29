@@ -6,12 +6,13 @@ var Homepage = {
   slides: [],
   currentIndex: 0,
 
+  widthSmall: 500,
+
   init: function(){
     var self = this;
     $(window).resize( function(){ self.resize(); });
     self.resize();
   },
-
 
   resize: function(){
     var windowObj = $(window);
@@ -35,9 +36,12 @@ var Homepage = {
       "top": adj1.offset().top
     });
 
+
     adj3.css({
       "top": (adj2.offset().top-50) + (ww*0.15),
-      "left": (ww*0.22),
+      "left": ( ww > this.widthSmall ) ? (ww*0.22) : (ww*0.05),
+      "width": "auto",
+      "max-width": "480px",
 
     });
 
@@ -53,13 +57,6 @@ var Homepage = {
       });
     }
   },
-
-
-
-
-
-
-
 };
 
 

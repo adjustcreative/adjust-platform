@@ -4,7 +4,7 @@
   %img#hp-adjust1{src: image_path("adjust-creative-phototext.png") }
   %img#hp-adjust2{src: image_path("adjust-creative-we-belive-in-good-design.svg" )}
   %div#hp-adjust3
-    %p For that reason, we've spent our lives<br>honing and crafting the ability to help people<br>communicate with design and technology,<br>effectively, and strategically
+    %p For that reason, we've spent our lives honing and crafting the ability to help people communicate with design and technology, effectively, and strategically
 
 :css
   .hometop{
@@ -27,7 +27,7 @@
   }
   #hp-adjust3{
     position:absolute;
-    width:100%;
+    width:90%;
     z-index:30;
     font-size: 0.8em;
     letter-spacing: 0.1em;
@@ -47,8 +47,9 @@
     %p We use lean methods to create and develop interactive products and experiences with a people-first approach. Our team has the skills to take a project from concept to launch but can also work just as effectively to augment a team.
 
     .space
-    = link_to "/p/capabilities" do
-      %button View our Capabilities
+    .align-right
+      = link_to "/p/capabilities" do
+        %button View our Capabilities
     .space
 
 .home-features
@@ -63,7 +64,7 @@
 
   #case-study-himss.feature{ :style => "background-color:#131384 !important;"}
     .bg{ :style => "background-image: url(#{image_path "himss-homepage.jpg"})" }
-    .inner
+    .inner.align-right
       %p Case Study
       %h1 Unique Experience, Complex Data
       %h3 The HIMSS Health IT Value Suite that we designed and developed was praised at the leadership level of the HIMSS and during a McKinsey audit was identified one of a few key pillars to build upon. Analytics provides backup in the form of data to these opinions—the Value Suite has astronomically higher statistics when compared to the rest of himss.org and industry averages.
@@ -74,7 +75,7 @@
     .bg{ :style => "background-image: url(#{image_path "peruse-homepage.jpg"})" }
     .inner
       %p Case Study
-      %h1 A Product Design Sprint.
+      %h1 Idea to Product in One Week
       %h3 Peruse is our simple, but elegant mobile app, built to read design industry news from our favorite blogs, including: Awwwards, Invision, CreativeBloq, UX Booth, Designmondo, UX Movement, Dribbble, Smashing Magazine, Fast co.Design and our Adjust Creative Medium blog.
       .space
       = link_to "View Case Study", "/articles/peruse", class: "button"
@@ -83,7 +84,7 @@
     .bg{ :style => "background-image: url(#{image_path "tovala-homepage.jpg"})" }
     .inner
       %p Case Study
-      %h1 The future of your kitchen.
+      %h1 The future of your kitchen
       %h3 We've been helping our friends at Tovala design an app for their multi-function smart oven and food-delivery service. We are hungry every time we go to their office.
       .space
       = link_to "View Case Study", "/articles/tovala", class: "button"
@@ -147,7 +148,8 @@
     position:relative;
     top:0px;
     z-index:200;
-    padding:40px 0px;
+    padding: 120px 0px;
+    width:90%;
     max-width:800px;
     margin-left:auto;
     margin-right:auto;
