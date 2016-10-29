@@ -24,6 +24,7 @@
       zRange: 1.0,
       ambient: '#555555',
       diffuse: '#666666',
+      // speed: 0.0002
       speed: 0.0002
     };
 
@@ -37,12 +38,15 @@
       ambient: PAGE_COLOR_1,
       diffuse: PAGE_COLOR_2,
       speed: 0.001,
-      gravity: 1200,
+      // speed: 0.1,
+      // gravity: 1200,
+      gravity: 300,
       dampening: 0.95,
       minLimit: 10,
       maxLimit: null,
       minDistance: 20,
       maxDistance: 400,
+      // autopilot: true,
       autopilot: true,
       draw: false,
       bounds: FSS.Vector3.create(),

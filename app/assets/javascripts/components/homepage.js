@@ -14,6 +14,29 @@ var Homepage = {
     self.resize();
   },
 
+  doIntro: function(){
+    var hometop = $("#hometop");
+    var adj1 = $("#hp-adjust1");
+    var adj2 = $("#hp-adjust2");
+    var adj3 = $("#hp-adjust3");
+
+    // set initials..
+    adj1.css("opacity", 0);
+    adj2.css("opacity", 0);
+    adj3.css("opacity", 0);
+
+    // animate..
+    adj1.delay(100).animate({ opacity:1 }, 1000);
+    adj2.delay(800).animate({ opacity:1 }, 1000);
+    adj3.delay(1500).animate({ opacity:1 }, 1000);
+
+    // show the top
+    hometop.css("opacity", 1);
+
+
+    $(".home-services, .home-features, .workwithus").css("opacity",1)
+  },
+
   resize: function(){
     var windowObj = $(window);
     var hometop = $("#hometop");
@@ -49,6 +72,7 @@ var Homepage = {
       position: "relative",
       "min-height": windowObj.height()
     });
+
     for(var i=0; i<this.slides.length; i++){
       var slide = this.slides[i];
       slide.css({
@@ -60,10 +84,17 @@ var Homepage = {
 };
 
 
+var homepage = Object.create( Homepage );
 
 $(document).ready(function(){
   if( HOMEPAGE ){
-    var homepage = Object.create( Homepage );
-    homepage.init(); 
+    homepage.init();
+  }
+});
+
+
+$(window).ready(function(){
+  if( HOMEPAGE ){
+    homepage.doIntro();
   }
 });
