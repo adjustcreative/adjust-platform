@@ -19,22 +19,18 @@ var Homepage = {
     var adj1 = $("#hp-adjust1");
     var adj2 = $("#hp-adjust2");
     var adj3 = $("#hp-adjust3");
-
     // set initials..
     adj1.css("opacity", 0);
     adj2.css("opacity", 0);
     adj3.css("opacity", 0);
-
     // animate..
     adj1.delay(100).animate({ opacity:1 }, 1000);
     adj2.delay(800).animate({ opacity:1 }, 1000);
     adj3.delay(1500).animate({ opacity:1 }, 1000);
-
     // show the top
     hometop.css("opacity", 1);
-
-
-    $(".home-services, .home-features, .workwithus").css("opacity",1)
+    //show rest of page
+    $(".home-services, .home-features, .workwithus").css("opacity",1);
   },
 
   resize: function(){
@@ -59,13 +55,11 @@ var Homepage = {
       "top": adj1.offset().top
     });
 
-
     adj3.css({
       "top": (adj2.offset().top-50) + (ww*0.15),
       "left": ( ww > this.widthSmall ) ? (ww*0.22) : (ww*0.05),
       "width": "auto",
       "max-width": "480px",
-
     });
 
     $(".home-features").css({
