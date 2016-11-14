@@ -33,7 +33,7 @@ var OverlayMenu = React.createClass({
 
   componentDidUpdate: function() { 
     this.setInteraction(); 
-    console.log(this.isToggle)
+    // console.log(this.isToggle)
     if(this.isToggle){
       $(".globalmenu").css("opacity",0);
       $(".globalmenu").animate({"opacity":1}, 300);

@@ -30,6 +30,8 @@ gem 'simple_form'
 gem 'kaminari'
 gem 'gibbon'
 
+gem "aws-sdk"
+
 gem 'carrierwave'
 gem 'carrierwave-base64'
 # gem 'gmaps4rails'
